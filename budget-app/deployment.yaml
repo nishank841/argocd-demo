@@ -13,8 +13,17 @@ spec:
       labels:
         app: budget
     spec:
+      volumes:
+        - name: budget-data
+          emptyDir: {}
+
       containers:
-      - name: budget
-        image: nishank840/budget-app:latest
-        ports:
-        - containerPort: 80
+        - name: budget
+          image: nishank840/budget-app:latest
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: budget-data
+              mountPath: /app
+
+

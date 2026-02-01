@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-app
-  namespace: demo
+  name: budget-app
+  namespace: budget
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: demo
+      app: budget
   template:
     metadata:
       labels:
-        app: demo
+        app: budget
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
+      - name: budget
+        image: nishank840/budget-app:latest
         ports:
-        - containerPort: 80
+        - containerPort: 5000

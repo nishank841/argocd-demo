@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: budget-ingress
-  namespace: budget
+  name: demo-ingress
+  namespace: demo
 spec:
   rules:
-  - host: budget.local
+  - host: demo.local
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: budget-service
+            name: demo-service
             port:
               number: 80

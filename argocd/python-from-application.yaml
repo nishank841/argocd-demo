@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/nishank841/Helm-charts
     targetRevision: main
-    path: charts/base-app
+    path: base-app
     helm:
       valueFiles:
         - ../../apps/python-from/values.yaml

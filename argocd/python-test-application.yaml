@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: python-test
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/nishank841/Helm-charts
+    targetRevision: main
+    path: base-app
+    helm:
+      valueFiles:
+        - $values/apps/python-test/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: python-test-ns-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
